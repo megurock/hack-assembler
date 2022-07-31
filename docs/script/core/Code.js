@@ -106,4 +106,3 @@ export default class Code {
         throw new Error(`${mnemonic} is invalid.`);
     }
 }
-//# sourceMappingURL=Code.js.map

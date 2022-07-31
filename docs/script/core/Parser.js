@@ -119,4 +119,3 @@ export default class Parser {
         return /;/.test(this.command);
     }
 }
-//# sourceMappingURL=Parser.js.map

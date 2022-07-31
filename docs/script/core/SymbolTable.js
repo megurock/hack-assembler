@@ -51,4 +51,3 @@ export default class SymbolTable {
         return Array.from(this.symbolMap.entries());
     }
 }
-//# sourceMappingURL=SymbolTable.js.map
