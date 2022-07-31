@@ -2,7 +2,18 @@
 @use './mixins' as mx;
 
 .#{var.$namespace}-icon-button {
-  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   aspect-ratio: 1/1;
   border: 1px solid #000;
+  background-color: #ccc;
+  color: #000;
+
+  &:visited,
+  &:hover,
+  &:active,
+  &:link {
+    text-decoration: none;
+  }
 }

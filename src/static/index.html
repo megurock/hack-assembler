@@ -16,12 +16,13 @@
       <h1 class="hk-header__heading">Hack Assembler</h1>
     </header>
     <nav class="hk-nav">
-      <button class="hk-icon-button hk-nav__button">
-        <span class="material-symbols-outlined">save_as</span>
+      <a class="hk-icon-button hk-nav__button" download="result.hack" id="js-download-button">
+        <span class="material-symbols-outlined">save_as</a>
       </button>
-      <button class="hk-icon-button hk-nav__button">
+      <div class="hk-upload-button hk-icon-button">
         <span class="material-symbols-outlined">folder_open</span>
-      </button>
+        <input type="file" class="hk-upload-button__input" id="js-upload-button">
+      </div>
     </nav>
     <main class="hk-main">
       <div class="hk-pane hk-main__pane">
