@@ -2,9 +2,13 @@
   "name": "hack-assembler",
   "version": "0.1.0",
   "description": "Compiles hack assembly to a binary format.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/megurock/hack-assembler.git"
+  },
   "main": "index.js",
   "author": "Eiji Meguro",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "run-p dev:* server",
