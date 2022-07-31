@@ -3,9 +3,11 @@ import Code from './Code.js'
 
 const assembly = `@3
 D=M
-@5
+@5 // Comment
 D=D-A
+
 @100
+// Comment 
 D;JEQ
 @200
 0;JMP`
@@ -24,16 +26,17 @@ const decimal2Binary = (decimal: number, minLength = 16) => {
  */
 const getBinary = () => {
   switch (parser.commandType) {
+    case Parser.BLANK_LINE:
+      return '(Blank line)'
     case Parser.A_COMMAND:
       return `0${decimal2Binary(Number(parser.symbol), 15)}`
     case Parser.C_COMMAND:
-      const compiled = [
+      return [
         '111',
         code.comp(parser.comp),
         code.dest(parser.dest),
         code.jump(parser.jump),
-      ]
-      return `${compiled.join('')}`
+      ].join('')
     case Parser.L_COMMAND:
       return 'We need to develop a SymbolTable.'
   }

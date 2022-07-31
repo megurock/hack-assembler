@@ -24,6 +24,8 @@ describe('Parser', () => {
     expect(new Parser(' @1').commandType).toBe(Parser.A_COMMAND)
     expect(new Parser(' M=1 ').commandType).toBe(Parser.C_COMMAND)
     expect(new Parser(' (LOOP) ').commandType).toBe(Parser.L_COMMAND)
+    expect(new Parser('@3 // Comment').commandType).toBe(Parser.A_COMMAND)
+    expect(new Parser('// Comment').commandType).toBe(Parser.BLANK_LINE)
   })
   //
   it('should return the command symbol.', () => {
