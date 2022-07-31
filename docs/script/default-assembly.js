@@ -22,3 +22,4 @@ M=0         // sum = 0
   @END
   0;JMP     // Infinite loop
 `;
+//# sourceMappingURL=default-assembly.js.map
