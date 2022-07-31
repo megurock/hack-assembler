@@ -1,0 +1,14 @@
+@use './variables' as var;
+@use './mixins' as mx;
+
+.#{var.$namespace}-header {
+  display: flex;
+  background-color: #292929;
+
+  &__heading {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0;
+    padding: 15px;
+  }
+}

@@ -1,0 +1,12 @@
+@use './variables' as var;
+@use './mixins' as mx;
+
+.#{var.$namespace}-nav {
+  background-color: #363636;
+  display: flex;
+  flex-direction: row;
+
+  @include mx.mq() {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,18 @@
+@use './variables' as var;
+
+@mixin mq($key: md, $prop: min) {
+  $breakPoint: map-get(var.$breakpoints, $key);
+  @if $prop == min {
+    $breakPoint: $breakPoint + 1;
+  }
+  @media screen and (#{map-get(var.$breakpoint-props, $prop)}: #{$breakPoint}) {
+    @content;
+  }
+}
+@mixin hover() {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

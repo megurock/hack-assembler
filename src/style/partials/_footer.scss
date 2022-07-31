@@ -1,0 +1,8 @@
+@use './variables' as var;
+@use './mixins' as mx;
+
+.#{var.$namespace}-footer {
+  background-color: #0079cc;
+  color: #fff;
+  padding: 8px;
+}

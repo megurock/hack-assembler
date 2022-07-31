@@ -1,0 +1,52 @@
+@use './variables' as var;
+@use './mixins' as mx;
+
+.#{var.$namespace}-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #222;
+  @include mx.mq() {
+    flex-direction: row;
+  }
+
+  &__pane {
+    flex-grow: 1;
+    @include mx.mq() {
+      width: 50%;
+    }
+  }
+}
+
+.#{var.$namespace}-pane {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+
+  &__heading {
+    font-weight: normal;
+    font-size: 16px;
+    padding: 4px;
+    margin: 0;
+  }
+
+  &__textarea {
+    font-family: monospace;
+    background-color: #f9f9f9;
+    height: max-content;
+    flex-grow: 1;
+    resize: none;
+    padding: 20px;
+    color: #111;
+    line-height: 1.5;
+    font-size: 14px;
+  }
+
+  & + & {
+    border-top: 1px solid #000;
+    @include mx.mq() {
+      border-top: none;
+      border-left: 1px solid #000;
+    }
+  }
+}

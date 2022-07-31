@@ -1,0 +1,11 @@
+$namespace: 'hk';
+
+// Breakpoints
+$breakpoints: (
+  md: 768px,
+);
+
+$breakpoint-props: (
+  min: 'min-width',
+  max: 'max-width',
+);

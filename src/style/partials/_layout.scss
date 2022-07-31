@@ -1,0 +1,35 @@
+@use './variables' as var;
+@use './mixins' as mx;
+
+.#{var.$namespace}-app {
+  height: 100%;
+  position: relative;
+  margin: 0;
+  display: grid;
+  grid-template-areas: 'header' 'nav' 'main' 'footer';
+  grid-template-rows: auto auto 1fr auto;
+  background-color: #111;
+  color: #fff;
+
+  @include mx.mq() {
+    grid-template-areas: 'header header' 'nav main' 'footer footer';
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+}
+
+.#{var.$namespace}-nav {
+  grid-area: nav;
+}
+
+.#{var.$namespace}-header {
+  grid-area: header;
+}
+
+.#{var.$namespace}-footer {
+  grid-area: footer;
+}
+
+.#{var.$namespace}-main {
+  grid-area: main;
+}

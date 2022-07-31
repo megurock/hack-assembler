@@ -1,0 +1,8 @@
+@use './variables' as var;
+@use './mixins' as mx;
+
+.#{var.$namespace}-icon-button {
+  cursor: pointer;
+  aspect-ratio: 1/1;
+  border: 1px solid #000;
+}

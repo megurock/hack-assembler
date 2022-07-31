@@ -4,10 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style/app.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <script src="/script/app.js" type="module" defer></script>
     <title>Hack Assembler</title>
   </head>
-  <body>
-    <h1>Hack Assembler</h1>
+  <body class="hk-app">
+    <header class="hk-header">
+      <h1 class="hk-header__heading">Hack Assembler</h1>
+    </header>
+    <nav class="hk-nav">
+      <button class="hk-icon-button hk-nav__button">
+        <span class="material-symbols-outlined">save_as</span>
+      </button>
+      <button class="hk-icon-button hk-nav__button">
+        <span class="material-symbols-outlined">folder_open</span>
+      </button>
+    </nav>
+    <main class="hk-main">
+      <div class="hk-pane hk-main__pane">
+        <h2 class="hk-pane__heading">Source</h2>
+        <textarea id="js-source" class="hk-pane__textarea"></textarea>
+      </div>
+      <div class="hk-pane hk-main__pane">
+        <h2 class="hk-pane__heading">Destination</h2>
+        <textarea
+          id="js-destination"
+          class="hk-pane__textarea"
+          readonly
+        ></textarea>
+      </div>
+    </main>
+    <footer class="hk-footer">
+      <small>copyleft MIT</small>
+    </footer>
   </body>
 </html>
