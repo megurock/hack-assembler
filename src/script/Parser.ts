@@ -106,6 +106,13 @@ export default class Parser {
   /**
    *
    */
+  public reset() {
+    this.head = 0
+  }
+
+  /**
+   *
+   */
   protected hasDest() {
     return /=/.test(this.command)
   }

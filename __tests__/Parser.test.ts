@@ -59,4 +59,11 @@ describe('Parser', () => {
     parser.setAssembly('D=1')
     expect(parser.commandType === Parser.C_COMMAND).toBeTruthy()
   })
+  //
+  it('should reset the head.', () => {
+    const parser = new Parser(doubleLoneCommand)
+    parser.advance()
+    parser.reset()
+    expect(parser.symbol).toBe('1')
+  })
 })
