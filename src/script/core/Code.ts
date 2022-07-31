@@ -91,7 +91,7 @@ export default class Code {
   public dest(mnemonic: string | null) {
     const binary = Code.destMap.get(mnemonic)
     if (binary) return binary
-    throw new Error(`${mnemonic} is an invalid parameter`)
+    throw new Error(`${mnemonic} is invalid.`)
   }
 
   /**
@@ -104,7 +104,7 @@ export default class Code {
       const binary = Code.compMap.get(mnemonic)
       if (binary) return binary
     }
-    throw new Error(`${mnemonic} is an invalid parameter`)
+    throw new Error(`${mnemonic} is invalid.`)
   }
 
   /**
@@ -115,6 +115,6 @@ export default class Code {
   public jump(mnemonic: string | null) {
     const binary = Code.jumpMap.get(mnemonic)
     if (binary) return binary
-    throw new Error(`${mnemonic} is an invalid parameter`)
+    throw new Error(`${mnemonic} is invalid.`)
   }
 }
