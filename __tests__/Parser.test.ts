@@ -1,4 +1,4 @@
-import Parser from '../src/script/Parser'
+import Parser from '../src/script/core/Parser'
 
 const singleLineCommand = '@1'
 const doubleLoneCommand = `@1

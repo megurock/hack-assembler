@@ -1,4 +1,4 @@
-import SymbolTable from '../src/script/SymbolTable'
+import SymbolTable from '../src/script/core/SymbolTable'
 
 describe('SymbolTable', () => {
   const symbolTable = new SymbolTable()

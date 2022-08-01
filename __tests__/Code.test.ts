@@ -1,4 +1,4 @@
-import Code from '../src/script/Code'
+import Code from '../src/script/core/Code'
 
 describe('Code', () => {
   const code = new Code()
@@ -13,7 +13,7 @@ describe('Code', () => {
     expect(code.dest('AD')).toBe('110')
     expect(code.dest('AMD')).toBe('111')
     try {
-      expect(code.dest('DA')).toThrowError('DA is an invalid parameter')
+      expect(code.dest('DA')).toThrowError('DA is invalid.')
     } catch (e) {}
   })
   //
@@ -48,7 +48,7 @@ describe('Code', () => {
     expect(code.comp('D&M')).toBe('1000000')
     expect(code.comp('D|M')).toBe('1010101')
     try {
-      expect(code.comp('DA')).toThrowError('DA is an invalid parameter')
+      expect(code.comp('DA')).toThrowError('DA is invalid.')
     } catch (e) {}
   })
   //
@@ -62,7 +62,7 @@ describe('Code', () => {
     expect(code.jump('JLE')).toBe('110')
     expect(code.jump('JMP')).toBe('111')
     try {
-      expect(code.jump('JEE')).toThrowError('JEE is an invalid parameter')
+      expect(code.jump('JEE')).toThrowError('JEE is invalid.')
     } catch (e) {}
   })
 })
