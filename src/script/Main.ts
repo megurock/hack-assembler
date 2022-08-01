@@ -100,9 +100,7 @@ export default class Main {
    * @returns
    */
   private decimal2Binary(decimal: number, minLength = 15) {
-    let binary = decimal.toString(2)
-    while (binary.length < minLength) binary = `0${binary}`
-    return binary
+    return decimal.toString(2).padStart(minLength, '0')
   }
 
   /**
