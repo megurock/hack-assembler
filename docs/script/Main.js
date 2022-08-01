@@ -83,10 +83,7 @@ export default class Main {
      * @returns
      */
     decimal2Binary(decimal, minLength = 15) {
-        let binary = decimal.toString(2);
-        while (binary.length < minLength)
-            binary = `0${binary}`;
-        return binary;
+        return decimal.toString(2).padStart(minLength, '0');
     }
     /**
      *
