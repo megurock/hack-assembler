@@ -2,6 +2,7 @@ export default class Parser {
   public static readonly A_COMMAND = 'A_COMMAND'
   public static readonly C_COMMAND = 'C_COMMAND'
   public static readonly L_COMMAND = 'L_COMMAND'
+  public static readonly GOTO_COMMAND = 'GOTO_COMMAND'
   public static readonly BLANK_LINE = 'BLANK_LINE'
   protected lines: string[] = []
   protected head = 0
@@ -51,6 +52,7 @@ export default class Parser {
    */
   public get commandType() {
     if (this.command === '') return Parser.BLANK_LINE
+    else if (this.command.startsWith('goto')) return Parser.GOTO_COMMAND
     else if (this.command.startsWith('@')) return Parser.A_COMMAND
     else if (/^\(.+\)$/.test(this.command)) return Parser.L_COMMAND
     else return Parser.C_COMMAND
@@ -65,6 +67,10 @@ export default class Parser {
         return this.command.slice(1)
       case Parser.L_COMMAND:
         return this.command.replace(/\((.+)\)/, '$1')
+      case Parser.GOTO_COMMAND:
+        const symbol = this.command.slice(4)
+        const isInt = /^\d+$/.test(symbol)
+        return isInt ? symbol : `@${symbol}`
       default:
         return null
     }

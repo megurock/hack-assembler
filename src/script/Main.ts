@@ -46,6 +46,27 @@ export default class Main {
   }
 
   /**
+   * Convert macro commands to mnemonics
+   */
+  private convertMacro2mnemonics(assembly: string) {
+    const translatedCommands: string[] = []
+    const getAssembly = () => {
+      if (this.parser.commandType === Parser.GOTO_COMMAND) {
+        translatedCommands.push(...[this.parser.symbol!, '0;JMP'])
+      } else {
+        translatedCommands.push(this.parser.command)
+      }
+    }
+    //
+    while (this.parser.hasMoreCommands) {
+      getAssembly()
+      this.parser.advance()
+    }
+    getAssembly()
+    return translatedCommands.join('\n')
+  }
+
+  /**
    *
    * @param parser
    */
@@ -196,13 +217,15 @@ export default class Main {
    */
   private onSourceUpdate(event: Event) {
     this.assembly = (event.target as HTMLTextAreaElement).value
-    this.parser.setAssembly(this.assembly)
 
     if (this.assembly !== '') {
-      // [1 First pass] We will create a symbol table.
+      // [1. First pass] Convert macro commands to mnemonics.
+      this.parser.setAssembly(this.convertMacro2mnemonics(this.assembly))
+
+      // [2 Second pass] We will create a symbol table.
       this.resetSymbolTable()
 
-      // [2 Second pass]
+      // [3. Third pass]
       // Here we generate the Hack machine language in binary representation
       // while resolving the addresses of the symbols in the following way.
       // - Assign addresses to the label symbols of the A-instruction using the symbol table

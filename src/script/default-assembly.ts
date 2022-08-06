@@ -16,8 +16,7 @@ M=0         // sum = 0
   M=D+M     // sum = sum + i
   @i
   M=M+1     // i = i + 1
-  @LOOP
-  0;JMP     // goto LOOP
+  goto LOOP
 (END)
   @END
   0;JMP     // Infinite loop

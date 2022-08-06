@@ -26,12 +26,15 @@ describe('Parser', () => {
     expect(new Parser(' (LOOP) ').commandType).toBe(Parser.L_COMMAND)
     expect(new Parser('@3 // Comment').commandType).toBe(Parser.A_COMMAND)
     expect(new Parser('// Comment').commandType).toBe(Parser.BLANK_LINE)
+    expect(new Parser('goto LOOP').commandType).toBe(Parser.GOTO_COMMAND)
   })
   //
   it('should return the command symbol.', () => {
     expect(new Parser(' @1 ').symbol).toBe('1')
     expect(new Parser(' M=1 ').symbol).toBeNull()
     expect(new Parser(' (LOOP) ').symbol).toBe('LOOP')
+    expect(new Parser(' goto LOOP ').symbol).toBe('@LOOP')
+    expect(new Parser(' goto 3 ').symbol).toBe('3')
   })
   //
   it('should return the C instruction dest mnemonic.', () => {
